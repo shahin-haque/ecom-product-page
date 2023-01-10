@@ -1,0 +1,113 @@
+.img-wrapper {
+  .img {
+    position: relative;
+    display: inline-block;
+  }
+
+  .controls {
+    position: absolute;
+    background-color: wheat;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .next {
+    right: 14px;
+  }
+  .prev {
+    left: 14px;
+  }
+}
+//   info style
+
+.info-wrapper {
+  padding: 1rem;
+  & span {
+    color: $Orange;
+    background-color: $Pale-orange;
+  }
+  & > span {
+    color: $Orange;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .title,
+  .info {
+    padding-block: 0.5rem;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .info {
+    color: $Dark-grayish-blue;
+    font-size: 0.96rem;
+  }
+  .price-wrapper {
+    padding-block: 0.5rem;
+    display: flex;
+    align-items: center;
+    .price {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+    }
+    & span {
+      margin-left: 0.8rem;
+      border-radius: 0.3rem;
+      padding: 0.1rem 0.4rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .prevprice {
+      margin-left: auto;
+      display: inline;
+      color: $Grayish-blue;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: line-through;
+    }
+    @include mq-tablet {
+      display: block;
+    }
+  }
+
+  //
+  .qty-cart-wrapper {
+    & > div:first-child {
+      background-color: $Light-grayish-blue;
+      margin: 0.5rem 0 1rem 0;
+      padding: 0.3rem 1rem;
+      border-radius: 0.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      box-shadow: 3px 3px 10px rgba(208, 208, 208, 0.467);
+
+      & button:not(:nth-child(2)) {
+        color: $Orange;
+        font-size: 1.4rem;
+      }
+      @include mq-tablet {
+        flex-basis: 30%;
+        margin: 0;
+      }
+    }
+    & > div:last-child {
+      flex-basis: 50%;
+    }
+    @include mq-tablet {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}
