@@ -1,11 +1,24 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
+import { useGlobalStore } from './ContextProvider';
 
 const SingleProductScreen = ({ product }) => {
   const [imgIndex, setImgIndex] = useState(0);
+  const { addToCart, Cart, decrease, increase } = useGlobalStore();
+
+  const lng = product.productImage.length - 1;
+  const nextImage = () => {
+    setImgIndex(() => (imgIndex < lng ? imgIndex + 1 : 0));
+  };
+  const prevImage = () => {
+    setImgIndex(() => (imgIndex > 0 ? imgIndex - 1 : lng));
+  };
+  console.log(imgIndex);
 
   return (
-    <section>
+    <section className="product">
+      <Link href="/cart">Cart</Link>
       <div className="img-wrapper">
         <div className="img">
           <Image
@@ -13,24 +26,35 @@ const SingleProductScreen = ({ product }) => {
             src={product.productImage[imgIndex]}
             alt={product.title}
           />
-          <div className="controls prev">
+          <div className="controls prev" onClick={() => prevImage()}>
             <Image
               src="/icon-previous.svg"
               alt="next icon"
               width={9.3}
               height={9.3}
-              onClick={() => setImgIndex(imgIndex - 1)}
             />
           </div>
-          <div className="controls next">
+          <div className="controls next" onClick={() => nextImage()}>
             <Image
               src="/icon-next.svg"
               alt="next icon"
               width={10}
               height={10}
-              onClick={() => setImgIndex(imgIndex + 1)}
             />
           </div>
+        </div>
+        <div className="thumbnail">
+          {product.productThumbnail.map((item, ind) => (
+            <Link key={ind} href="">
+              <Image
+                onClick={() => setImgIndex(ind)}
+                src={item}
+                alt="img"
+                // width={50}
+                // height={50}
+              />
+            </Link>
+          ))}
         </div>
       </div>
 
@@ -49,12 +73,14 @@ const SingleProductScreen = ({ product }) => {
 
         <div className="qty-cart-wrapper">
           <div>
-            <button>-</button>
-            <button>0</button>
-            <button>+</button>
+            <button onClick={() => decrease(product)}>-</button>
+            <button>{Cart.length === 0 ? 0 : Cart.map((x) => x.inCart)}</button>
+            <button onClick={() => increase(product)}>+</button>
           </div>
           <div>
-            <button className="btn">Add to cart</button>
+            <button onClick={() => addToCart(product)} className="btn">
+              Add to cart
+            </button>
           </div>
         </div>
       </div>

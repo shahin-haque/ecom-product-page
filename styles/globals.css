@@ -70,9 +70,39 @@ p {
   opacity: 0.7;
 }
 
+.inc,
+.dec {
+  width: auto;
+}
+
+.product {
+  max-width: 1000px;
+  margin: auto;
+  height: 80vh;
+}
+@media screen and (min-width: 47rem) {
+  .product {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+}
+@media screen and (min-width: 87rem) {
+  .product {
+    gap: 100px;
+  }
+}
+
 .img-wrapper .img {
   position: relative;
   display: inline-block;
+}
+@media screen and (min-width: 47rem) {
+  .img-wrapper .img img {
+    border-radius: 8px;
+  }
 }
 .img-wrapper .controls {
   position: absolute;
@@ -84,12 +114,42 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+.img-wrapper .controls:hover img {
+  filter: invert(1) saturate(20000);
+}
+.img-wrapper .controls:hover {
+  transform: scale(0.9);
 }
 .img-wrapper .next {
   right: 14px;
 }
 .img-wrapper .prev {
   left: 14px;
+}
+.img-wrapper .thumbnail {
+  display: none;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 47rem) {
+  .img-wrapper .thumbnail {
+    display: flex;
+    gap: 1rem;
+  }
+  .img-wrapper .thumbnail img {
+    border-radius: 10px;
+    flex-basis: 25%;
+    transition: all 300ms ease-in-out;
+  }
+  .img-wrapper .thumbnail a:focus img {
+    border: 3px solid rgb(255, 125, 26);
+    opacity: 0.6;
+  }
+  .img-wrapper .thumbnail img:hover {
+    opacity: 0.6;
+  }
 }
 
 .info-wrapper {
@@ -114,12 +174,22 @@ p {
 .info-wrapper .title {
   font-size: 1.6rem;
 }
+@media screen and (min-width: 47rem) {
+  .info-wrapper .title {
+    font-size: 2.6rem;
+  }
+}
 .info-wrapper .info {
   color: rgb(104, 112, 125);
   font-size: 0.96rem;
 }
+@media screen and (min-width: 47rem) {
+  .info-wrapper .info {
+    font-size: 1rem;
+  }
+}
 .info-wrapper .price-wrapper {
-  padding-block: 0.5rem;
+  padding-block: 0.8rem;
   display: flex;
   align-items: center;
 }
@@ -147,6 +217,9 @@ p {
   .info-wrapper .price-wrapper {
     display: block;
   }
+}
+.info-wrapper .qty-cart-wrapper {
+  margin-block: 1rem;
 }
 .info-wrapper .qty-cart-wrapper > div:first-child {
   background-color: rgb(247, 248, 253);
