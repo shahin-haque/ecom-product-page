@@ -76,7 +76,17 @@ const SingleProductScreen = ({ product }) => {
             <button onClick={() => increase(product)}>+</button>
           </div>
           <div>
-            <button onClick={() => addToCart(product)} className="btn">
+            <button
+              onClick={() => addToCart(product)}
+              className="btn add-to-cart"
+            >
+              <Image
+                className="cart-icon-in-btn"
+                src="/icon-cart.svg"
+                width={14}
+                height={14}
+                alt="icon"
+              />
               Add to cart
             </button>
           </div>

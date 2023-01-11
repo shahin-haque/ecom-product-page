@@ -132,7 +132,7 @@ p {
 }
 @media screen and (max-width: 47rem) {
   .header .nav {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.412);
     position: absolute;
     left: 0;
     top: 0;
@@ -174,6 +174,73 @@ p {
   .header .nav .nav-links-wrapper .link:first-of-type {
     padding-top: 5rem;
   }
+}
+.header .cart-icon {
+  position: relative;
+  z-index: 22;
+}
+.header .cart-section {
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  z-index: 24;
+  right: 1rem;
+  top: 4.75rem;
+  background-color: white;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.235);
+}
+@media screen and (max-width: 47rem) {
+  .header .cart-section {
+    inset: 3.75rem 0.5rem auto 0.5rem;
+  }
+}
+@media screen and (min-width: 47rem) {
+  .header .cart-section {
+    min-width: 300px;
+  }
+}
+.header .cart-section > p {
+  padding: 1rem;
+  font-weight: 700;
+}
+.header .cart-section .empty {
+  font-weight: 700;
+  color: rgb(104, 112, 125);
+}
+.header .cart-section .cart-wrapper {
+  padding: 1rem;
+  min-height: 180px;
+  border-top: 1px solid gainsboro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .cart-section .fill-cart {
+  border-top: 1px solid gainsboro;
+  padding: 1rem;
+}
+.header .cart-section .fill-cart .items {
+  display: flex;
+  gap: 1rem;
+}
+.header .cart-section .fill-cart .items .cart-info {
+  display: grid;
+  gap: 0.3rem;
+  color: rgb(104, 112, 125);
+}
+.header .cart-section .fill-cart .items .cart-info span {
+  margin-inline: 3px;
+}
+.header .cart-section .fill-cart .items .cart-info .subTotal {
+  color: rgb(29, 32, 37);
+  font-weight: 700;
+}
+.header .cart-section .fill-cart .items .cart-info .icon-delete {
+  margin-left: 1rem;
+}
+.header .cart-section .fill-cart .cheakout {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 .header .prrofile-wrapper {
   margin-left: auto;
@@ -380,4 +447,10 @@ p {
     align-items: center;
     gap: 1rem;
   }
+}
+.info-wrapper .add-to-cart img {
+  margin-right: 0.8rem;
+}
+.info-wrapper .cart-icon-in-btn {
+  filter: brightness(100);
 }/*# sourceMappingURL=globals.css.map */
