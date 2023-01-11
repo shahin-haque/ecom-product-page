@@ -1,0 +1,51 @@
+.header {
+  @include flex-c;
+  gap: 1rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: auto;
+  border-bottom: 1px solid $Light-grayish-blue;
+  padding-top: 1rem;
+  @include mq-desktop {
+    padding-inline: 0;
+  }
+
+  .toggle-menu {
+    @include mq-tablet {
+      display: none;
+    }
+  }
+  // navigation links
+  .nav {
+    .nav-links-wrapper {
+      @include flex-c;
+      gap: 1rem;
+      margin-left: 2rem;
+      // .link {
+      // }
+    }
+  }
+  // prrofile & cart wrapper
+  .prrofile-wrapper {
+    margin-left: auto;
+    @include flex-c;
+    gap: 1rem;
+    & img {
+      cursor: pointer;
+    }
+  }
+  .profile-icon img {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid $Orange;
+    border-radius: 100vmax;
+    transition: all 300ms ease-in;
+    &:hover {
+      border: 2px solid $Orange;
+    }
+    @include mq-tablet {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

@@ -9,6 +9,22 @@ $White: rgb(255, 255, 255);
 $Black-lightbox: rgba(0, 0, 0, 0.3);
 // (with 75% opacity for lightbox background): hsl(0, 0%, 0%)
 
+// Flex-Mixins
+@mixin flex-c {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-c-jcc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-c-jcsb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 // Break-Point-Mixins
 @mixin mq-tablet {
   @media screen and (min-width: 47rem) {
@@ -39,4 +55,25 @@ $Black-lightbox: rgba(0, 0, 0, 0.3);
 .inc,
 .dec {
   width: auto;
+}
+//
+.link {
+  color: $Dark-grayish-blue;
+  transition: all 300ms ease-in-out;
+  position: relative;
+
+  &:hover:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    display: inline-block;
+    left: 0;
+    bottom: -1rem;
+    background-color: $Orange;
+  }
+
+  &:hover {
+    color: $Very-dark-blue;
+  }
 }

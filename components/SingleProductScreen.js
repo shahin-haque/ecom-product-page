@@ -14,11 +14,9 @@ const SingleProductScreen = ({ product }) => {
   const prevImage = () => {
     setImgIndex(() => (imgIndex > 0 ? imgIndex - 1 : lng));
   };
-  console.log(imgIndex);
 
   return (
     <section className="product">
-      <Link href="/cart">Cart</Link>
       <div className="img-wrapper">
         <div className="img">
           <Image
