@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const NavMenuIcon = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
-    <div>
+    <>
       {isNavOpen ? (
         <button
           className="toggle-menu"
@@ -34,7 +34,7 @@ const NavMenuIcon = () => {
           />
         </button>
       )}
-    </div>
+    </>
   );
 };
 

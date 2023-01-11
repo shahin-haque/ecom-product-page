@@ -6,7 +6,7 @@ $Dark-grayish-blue: rgb(104, 112, 125);
 $Grayish-blue: rgb(182, 188, 200);
 $Light-grayish-blue: rgb(247, 248, 253);
 $White: rgb(255, 255, 255);
-$Black-lightbox: rgba(0, 0, 0, 0.3);
+$Black-lightbox: rgba(0, 0, 0, 0.35);
 // (with 75% opacity for lightbox background): hsl(0, 0%, 0%)
 
 // Flex-Mixins
@@ -24,6 +24,14 @@ $Black-lightbox: rgba(0, 0, 0, 0.3);
   align-items: center;
   justify-content: space-between;
 }
+// Break-Point-Mixin ONLY-FOR-MOBILE START
+
+@mixin mq-mobile-only {
+  @media screen and (max-width: 47rem) {
+    @content;
+  }
+}
+// Break-Point-Mixin ONLY-FOR-MOBILE END
 
 // Break-Point-Mixins
 @mixin mq-tablet {
@@ -58,19 +66,21 @@ $Black-lightbox: rgba(0, 0, 0, 0.3);
 }
 //
 .link {
-  color: $Dark-grayish-blue;
-  transition: all 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
   position: relative;
+  @include mq-tablet {
+    color: $Dark-grayish-blue;
 
-  &:hover:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    display: inline-block;
-    left: 0;
-    bottom: -1rem;
-    background-color: $Orange;
+    &:hover:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      display: inline-block;
+      left: 0;
+      bottom: -1rem;
+      background-color: $Orange;
+    }
   }
 
   &:hover {
